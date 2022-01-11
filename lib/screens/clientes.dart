@@ -121,7 +121,7 @@ class Clientes extends StatelessWidget {
                       width: 450,
                       height: 250,
                       fit: BoxFit.cover,
-                    ),
+                    )
                 ),
                 const SizedBox(height: 20),
                 Botonera(primerboton: products, segundoboton: button2),

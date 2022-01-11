@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       home: Splash(),
       routes: <String, WidgetBuilder>{
         "/productos" : (BuildContext context) => const ListadoProductos(titulo: 'Productos de Cocina'),
-        "/productos_json" : (BuildContext context) => const ListProductJson(titulo: 'Productos de Calzado'),
+        "/productos_json" : (BuildContext context) => ListProductJson(titulo: 'Productos de Calzado'),
         "/clientes" : (BuildContext context) => Clientes(),
         'second': (_) => SecondScreen()
       },

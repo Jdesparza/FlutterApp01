@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp01/screens/aplicacion.dart';
+import 'dart:math' as math;
 
 class Splash extends StatefulWidget{
   const Splash({Key? Key }): super(key: Key);
@@ -7,7 +8,7 @@ class Splash extends StatefulWidget{
   @override
   _SplashState createState() => _SplashState();
 }
-class _SplashState extends State<Splash>{
+class _SplashState extends State<Splash> with TickerProviderStateMixin {
   @override
   void initState(){
     super.initState();
@@ -18,6 +19,18 @@ class _SplashState extends State<Splash>{
     await Future.delayed(Duration(milliseconds: 3000), (){});
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const Home()));
   }
+
+  late final AnimationController _controller = AnimationController(
+    duration: const Duration(seconds: 10),
+    vsync: this,
+  )..repeat();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context){
@@ -33,11 +46,20 @@ class _SplashState extends State<Splash>{
               ),
               child: Padding(
                 padding: const EdgeInsets.all(20),
-                child: Image.asset(
-                  'assets/img/logoapp01.png',
-                  width: 100,
-                  height: 100,
-                  fit: BoxFit.cover,
+                child: AnimatedBuilder(
+                    animation: _controller,
+                    child: Image.asset(
+                      'assets/img/logoapp01.png',
+                      width: 100,
+                      height: 100,
+                      fit: BoxFit.cover,
+                    ),
+                    builder: (BuildContext context, Widget? child) {
+                      return Transform.rotate(
+                          angle: _controller.value * 10.0 * math.pi,
+                          child: child,
+                      );
+                    },
                 ),
               ),
             ),
