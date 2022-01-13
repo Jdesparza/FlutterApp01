@@ -4,12 +4,12 @@ class Clientes extends StatelessWidget {
   @override
   Widget build(BuildContext context){
     final products = SizedBox(
-      width: 200,
+      width: 180,
       child: ElevatedButton.icon(
           icon: const Icon(
             Icons.production_quantity_limits_rounded,
             size: 20,
-            color: Colors.red,
+            color: Colors.deepOrangeAccent,
           ),
           label: const Text('Productos Cocina', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
           style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.greenAccent)),
@@ -19,7 +19,7 @@ class Clientes extends StatelessWidget {
       )
     );
     final button2 = SizedBox(
-      width: 200,
+      width: 180,
       child: ElevatedButton.icon(
         icon: const Icon(
             Icons.featured_play_list,
@@ -34,31 +34,37 @@ class Clientes extends StatelessWidget {
       )
     );
     final button3 = SizedBox(
-      width: 200,
+      width: 180,
       child: ElevatedButton.icon(
         icon: const Icon(
-            Icons.radio_button_checked,
+            Icons.note,
             size: 20,
-            color: Colors.red
+            color: Colors.deepOrangeAccent
         ),
-        label: const Text('Botón3'),
-        onPressed: null,
+        label: const Text('Notas', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+        style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.greenAccent)),
+        onPressed: (){
+          Navigator.pushNamed(context, '/notas');
+        }
       ),
     );
     final button4 = SizedBox(
-      width: 200,
+      width: 180,
       child: ElevatedButton.icon(
         icon: const Icon(
-            Icons.radio_button_checked,
+            Icons.line_style,
             size: 20,
-            color: Colors.red
+            color: Colors.deepOrangeAccent
         ),
-        label: const Text('Botón4'),
-        onPressed: null,
+        label: const Text('Productos', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+        style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.greenAccent)),
+        onPressed: (){
+          Navigator.pushNamed(context, '/products_sqlite');
+        }
       ),
     );
     final button5 = SizedBox(
-      width: 200,
+      width: 180,
       child: ElevatedButton.icon(
         icon: const Icon(
             Icons.radio_button_checked,
@@ -70,7 +76,7 @@ class Clientes extends StatelessWidget {
       ),
     );
     final button6 = SizedBox(
-      width: 200,
+      width: 180,
       child: ElevatedButton.icon(
         icon: const Icon(
             Icons.radio_button_checked,
@@ -82,7 +88,7 @@ class Clientes extends StatelessWidget {
       ),
     );
     final button7 = SizedBox(
-      width: 200,
+      width: 180,
       child: ElevatedButton.icon(
         icon: const Icon(
             Icons.radio_button_checked,
@@ -94,7 +100,7 @@ class Clientes extends StatelessWidget {
       ),
     );
     final button8 = SizedBox(
-      width: 200,
+      width: 180,
       child: ElevatedButton.icon(
         icon: const Icon(
             Icons.radio_button_checked,
@@ -151,7 +157,7 @@ class Botonera extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         primerboton,
-        const SizedBox(width: 30),
+        const SizedBox(width: 10),
         segundoboton,
       ],
     );

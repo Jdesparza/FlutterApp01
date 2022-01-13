@@ -5,8 +5,17 @@ import 'package:flutterapp01/screens/second_screen.dart';
 import 'package:flutterapp01/screens/listado_productos.dart';
 import 'package:flutterapp01/screens/list_product_json.dart';
 import 'package:flutterapp01/splash.dart';
+import 'package:flutterapp01/screens/screens_notes/notes_screen.dart';
+import 'package:flutterapp01/screens/screens_products/products_screen.dart';
 
-void main() => runApp(const MyApp());
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -23,6 +32,8 @@ class MyApp extends StatelessWidget {
         "/productos" : (BuildContext context) => const ListadoProductos(titulo: 'Productos de Cocina'),
         "/productos_json" : (BuildContext context) => ListProductJson(titulo: 'Productos de Calzado'),
         "/clientes" : (BuildContext context) => Clientes(),
+        "/notas" : (BuildContext context) => NotesPage(),
+        "/products_sqlite" : (BuildContext context) => ProductsPage(),
         'second': (_) => SecondScreen()
       },
     );
